@@ -1,0 +1,117 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+.navbar{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
+    min-height: 10vh;
+    background-color: dodgerblue;
+    font-family: 'Roboto',sans-serif;
+    
+}
+
+
+.nav-links{
+    display: flex;
+    flex: 30%;
+    text-align: left;
+    color: white;
+    font-size: 20px;
+    position: relative;
+    
+    
+}
+
+#menu{
+    margin-left: 10%;
+
+}
+
+#user{
+    margin-left: 30%;
+
+}
+
+.nav-links li{
+    list-style: none;
+}
+.nav-links a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.sales{
+    flex: 70%;
+    text-align: center;
+    color: white;
+    font-size: 22px;
+    position: relative;
+    
+}
+
+.dropDownContainer{
+    
+   
+    background-color: #ddd;
+    display: flex;
+    
+    
+    
+}
+
+.category{
+    flex: 33%;
+    
+    justify-content: right;
+    margin: auto 100px;
+    
+}
+
+.product{
+    flex: 33%;
+    
+    justify-content: right;
+    margin: auto 100px;
+}
+
+.brand{
+    flex: 33%;
+    
+    justify-content: right;
+    margin: auto 100px;
+    
+}
+.titleSelect{
+    color: white;
+    font-size: 15px;
+    
+}
+.select{
+    padding: 8px 16px;
+    background-color: dodgerblue;
+    color: white;
+}
+
+/* Container com o Grafico*/
+
+.containerChart{
+    position: relative;
+    top: 50px;
+    
+}
+
+.containerButtons{
+    position: relative;
+    top: 50px;
+    
+    
+}
+

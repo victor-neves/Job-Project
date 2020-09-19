@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BarCharts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <div class="navbar">
+    <ul class="nav-links">
+        <li id="menu"><a href="#">Menu</a></li>
+        <li id="user"><a href="#" >User Name</a></li>
+    </ul>
+    <div class="sales">
+        <h4>Sales Report</h4>
+    </div>
+      
+   </div>
+    <div class="dropDownContainer">
+        
+        <div class="category">
+            <span class="titleSelect">Category</span>
+            <select class="select" id="slct1" onchange="populate1('slct1','slct2')">
+                <option >Food</option>
+                <option>Clothing</option>
+                <option >Electronics</option>
+            
+            </select>
+            
+        </div>
+        <div class="product">
+           <span class="titleSelect" >Product</span>
+               <select class="select"  id="slct2" onchange="populate2('slct2','slct3')">
+                </select>
+
+        </div>
+        <div class="brand">
+            <span class="titleSelect" >Brand</span>
+            <select class="select"  id="slct3" onchange="changeThirdDrop()">
+            </select>
+            
+        </div>
+    </div>  
+    <div class="containerChart">
+        <div id="chart"></div>
+    </div>
+    
+    
+    
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    
+    <script>
+       
+        
+        
+        function populate1(s1,s2){
+            var s1 = document.getElementById(s1);
+            var s2 = document.getElementById(s2);
+            s2.innerHTML = "";
+            
+            
+            if(s1.value == "Food"){
+                var optionArray = ["|","cerals|Cerals","vegetables|Vegetables","fruits|Fruits"];
+            }else if(s1.value == "Clothing"){
+                var optionArray = ["|","dresses|Dresses","tshirts|Tshirts","shoes|Shoes"];
+            }else if(s1.value == "Electronics"){
+                var optionArray = ["|","smarthphones|Smarthphones","tablets|Tablets","pcs|PCs"];
+            }
+            
+            for(var option in optionArray){
+                var pair = optionArray[option].split("|");
+                var newOption = document.createElement("option");
+                newOption.value = pair[0];
+                newOption.innerHTML = pair[1];
+                s2.options.add(newOption);
+            }
+            
+            google.charts.setOnLoadCallback(drawChart);
+            
+            
+        }
+        
+        function populate2(s2,s3){
+            var s2 = document.getElementById(s2);
+            var s3 = document.getElementById(s3);
+            s3.innerHTML = "";
+            
+            
+            if(s2.value == "cerals"){
+                var optionArray2 = ["|","brand1|Brand1","brand2|Brand2","brand3|Brand3"];
+                
+                
+            }else if(s2.value == "vegetables"){
+                var optionArray2 = ["|","brand1|Brand1","brand2|Brand2","brand3|Brand3"];
+            }else if(s2.value == "fruits"){
+                var optionArray2 = ["|","brand1|Brand1","brand2|Brand2","brand3|Brand3"];
+            }
+            
+
+            else if(s2.value == "dresses"){
+                var optionArray2 = ["|","brand1|Brand1","brand2|Brand2","brand3|Brand3"];
+                
+            }else if(s2.value == "tshirts"){
+                var optionArray2 = ["|","brand1|Brand1","brand2|Brand2","brand3|Brand3"];
+            }else if(s2.value == "shoes"){
+                var optionArray2 = ["|","brand1|Brand1","brand2|Brand2","brand3|Brand3"];
+            }
+            
+            else if(s2.value == "smarthphones"){
+                var optionArray2 = ["|","brand1|Brand1","brand2|Brand2","brand3|Brand3"];
+            }else if(s2.value == "tablets"){
+                var optionArray2 = ["|","brand1|Brand1","brand2|Brand2","brand3|Brand3"];
+            }else if(s2.value == "pcs"){
+                var optionArray2 = ["|","brand1|Brand1","brand2|Brand2","brand3|Brand3"];
+            }
+            
+            for(var option in optionArray2){
+                var pair = optionArray2[option].split("|");
+                var newOption2 = document.createElement("option");
+                newOption2.value = pair[0];
+                newOption2.innerHTML = pair[1];
+                s3.options.add(newOption2);
+                google.charts.setOnLoadCallback(drawChart);
+            }
+            
+           
+           google.charts.setOnLoadCallback(drawChart);
+            
+        }
+        
+        function changeThirdDrop(){
+            google.charts.setOnLoadCallback(drawChart);
+            
+        }
+        
+        google.charts.load('current', {packages: ['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+        
+        const options = {
+                title: 'Sales by Month for:',
+                height: 400,
+                width: 1400,
+                vAxis: {
+                    ticks: [0, 100, 200, 300, 400, 500, 600, 700, 800]
+                }
+               
+        }
+    
+        
+        function drawChart() {
+            let value1 = 100 * ( Math.floor( Math.random() * 10));
+            let value2 = 100 * ( Math.floor( Math.random() * 10));
+            let value3 = 100 * ( Math.floor( Math.random() * 10));
+            let value4 = 100 * ( Math.floor( Math.random() * 10));
+            
+            const container = document.querySelector("#chart");
+            const data = new google.visualization.arrayToDataTable([
+                
+                             
+                ['Character', 'Sales'],
+                ['Janeiro', value1],
+                ['Fevereiro', value2],
+                ['Março', value3],
+                ['Abril', value4],
+                
+            ])
+            
+            
+            const options = {
+                title: 'Sales by Months for',
+                height: 400,
+                width: 1300
+            }
+            
+            const chart = new google.visualization.ColumnChart(container)
+            chart.draw(data,options);
+            
+        }
+        
+         
+        
+       
+        
+</script>
+</body>
+</html>
